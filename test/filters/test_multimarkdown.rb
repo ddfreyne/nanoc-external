@@ -6,7 +6,17 @@ class Nanoc::Multimarkdown::FilterTest < Minitest::Test
 
   def test_filter
     filter = ::Nanoc::Multimarkdown::Filter.new({})
-    assert_equal("HELLO WORLD!", filter.run("Hello World!"))
+    src <<-MMD
+    # Header
+    
+    Paragraph
+    MMD
+    out <<-HTML
+<h1 id="header">Header</h1>
+
+<p>Paragraph</p>
+    HTML
+    assert_equal(out, filter.run(src))
   end
 
 end
