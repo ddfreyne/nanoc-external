@@ -17,6 +17,10 @@ to process content by executing an external program.
 filter :external, :exec => 'command-name'
 ```
 
+The only requirement is that the external command must be
+able to receive its input from STDIN and it must sent its
+output to STDOUT.
+
 Options passed to this filter will be passed on to the
 external command. For example:
 
