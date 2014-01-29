@@ -7,7 +7,8 @@ class Nanoc::External::FilterTest < Minitest::Test
   def test_filter_no_options
     filter = ::Nanoc::External::Filter.new({})
     src = "Shall I compare thee to a Summer's day?"
-    assert_equal(src, filter.run(src, :exec => 'echo'))
+    out = 'U2hhbGwgSSBjb21wYXJlIHRoZWUgdG8gYSBTdW1tZXIncyBkYXk/Cg=='
+    assert_equal(out, filter.run(src, :exec => '/usr/bin/base64'))
   end
 
   def test_filter_with_options
