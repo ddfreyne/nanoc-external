@@ -1,14 +1,14 @@
 # encoding: utf-8
 
 $LOAD_PATH.unshift(File.expand_path('../lib/', __FILE__))
-require 'nanoc/multimarkdown/version'
+require 'nanoc/external/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'nanoc-multimarkdown'
-  s.version     = Nanoc::MultiMarkdown::VERSION
+  s.name        = 'nanoc-external'
+  s.version     = Nanoc::External::VERSION
   s.homepage    = 'http://nanoc.ws/'
   s.summary     = 'Plugin template for nanoc'
-  s.description = 'Provides a :multimarkdown filter for nanoc'
+  s.description = 'Provides a :external filter for nanoc'
 
   s.author  = 'Lifepillar'
   s.email   = 'github@lifepillar.org'
@@ -18,13 +18,13 @@ Gem::Specification.new do |s|
 
   s.files              = Dir['[A-Z]*'] +
                          Dir['{lib,test}/**/*'] +
-                         [ 'nanoc-multimarkdown.gemspec' ]
+                         [ 'nanoc-external.gemspec' ]
   s.require_paths      = [ 'lib' ]
 
   s.rdoc_options     = [ '--main', 'README.md' ]
   s.extra_rdoc_files = [ 'LICENSE', 'README.md', 'NEWS.md' ]
 
   s.add_runtime_dependency('nanoc-core')
-  s.add_runtime_dependency('multimarkdown')
+  s.add_runtime_dependency('external')
   s.add_development_dependency('bundler')
 end

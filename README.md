@@ -1,31 +1,31 @@
-[![Build Status](https://travis-ci.org/nanoc/nanoc-multimarkdown.png)](https://travis-ci.org/nanoc/nanoc-multimarkdown)
-[![Code Climate](https://codeclimate.com/github/nanoc/nanoc-multimarkdown.png)](https://codeclimate.com/github/nanoc/nanoc-multimarkdown)
-[![Coverage Status](https://coveralls.io/repos/nanoc/nanoc-multimarkdown/badge.png?branch=master)](https://coveralls.io/r/nanoc/nanoc-multimarkdown)
+[![Build Status](https://travis-ci.org/nanoc/nanoc-external.png)](https://travis-ci.org/nanoc/nanoc-external)
+[![Code Climate](https://codeclimate.com/github/nanoc/nanoc-external.png)](https://codeclimate.com/github/nanoc/nanoc-external)
+[![Coverage Status](https://coveralls.io/repos/nanoc/nanoc-external/badge.png?branch=master)](https://coveralls.io/r/nanoc/nanoc-external)
 
-# nanoc-multimarkdown
+# nanoc-external
 
-This provides a [MultiMarkdown](http://fletcherpenney.net/multimarkdown/) filter for [nanoc](http://nanoc.ws).
+This provides a filter that allows [nanoc](http://nanoc.ws)
+to process content by executing an external program.
 
 ## Installation
 
-`gem install nanoc-multimarkwdown`
+`gem install nanoc-external`
 
 ## Usage
 
 ```ruby
-filter :multimarkdown
+filter :external, :exec => 'command-name'
 ```
 
-Options passed to this filter will be passed on to MultiMarkdown.
-For example:
+Options passed to this filter will be passed on to the
+external command. For example:
 
 ```ruby
-filter :multimarkdown, :opts => %w(--accept --mask --labels --smart)
+filter :external, exec: 'multimarkdown', options: => %w(--accept --mask --labels --smart)
 ```
 
-If the `multimarkdown` executable is not in your PATH, pass its path
-explicitly:
+If the executable is not in your PATH, use its full path:
 
 ```ruby
-filter :multimarkdown, :path => '/opt/local/bin'
+filter :external, exec: '/opt/local/bin/htmlcompressor'
 ```

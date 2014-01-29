@@ -3,4 +3,4 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'nanoc-core'
-require 'nanoc-multimarkdown'
+require 'nanoc-external'
