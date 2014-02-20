@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-module Nanoc::PluginTemplate
+module Nanoc::External
 
-  # Executes an arbitrary program.
-  # For this filter to work, the external program must be
-  # able to receive its input from STDIN and it must send its
-  # output to STDOUT.
-  class ExternalFilter < Nanoc::Filter
+  # Pipes content through an external process.
+  #
+  # For this filter to work, the external program must be able to receive input
+  # from standard input and it must write its output to standard output.
+  class Filter < Nanoc::Filter
 
     identifier :external
 
