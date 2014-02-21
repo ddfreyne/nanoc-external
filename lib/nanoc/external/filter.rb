@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-module Nanoc::PluginTemplate
+module Nanoc::External
 
-  # Executes an arbitrary program.
-  # For this filter to work, the external program must be
-  # able to receive its input from STDIN and it must send its
-  # output to STDOUT.
-  class ExternalFilter < Nanoc::Filter
+  # Pipes content through an external process.
+  #
+  # For this filter to work, the external program must be able to receive input
+  # from standard input and it must write its output to standard output.
+  class Filter < Nanoc::Filter
 
     identifier :external
 
@@ -28,14 +28,17 @@ module Nanoc::PluginTemplate
     #   filter :external, exec: '/usr/local/bin/htmlcompressor
     def run(content, params = {})
       debug = params.fetch(:debug, false)
-      cmd = params.fetch(:exec, nil)
+      cmd   = params.fetch(:exec, nil)
+      opts  = params.fetch(:options, [])
+
       if cmd.nil?
         raise Nanoc::Errors::GenericTrivial.new("nanoc-external: missing :exec argument")
       end
-      cmd.concat(params.fetch(:options, []))
-      odebug(cmd.join(' ')) if debug
+
+      cmd_with_opts = [ cmd ] + opts
+      odebug(cmd_with_opts.join(' ')) if debug
       out = ''
-      IO.popen(cmd, mode='r+') do |io|
+      IO.popen(cmd_with_opts, mode='r+') do |io|
         io.write content
         io.close_write # let the process know you've given it all the data
         out = io.read

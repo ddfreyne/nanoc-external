@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name        = 'nanoc-external'
   s.version     = Nanoc::External::VERSION
   s.homepage    = 'http://nanoc.ws/'
-  s.summary     = 'Plugin template for nanoc'
+  s.summary     = 'Exernal filter for nanoc'
   s.description = 'Provides a :external filter for nanoc'
 
   s.author  = 'Lifepillar'
@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.rdoc_options     = [ '--main', 'README.md' ]
   s.extra_rdoc_files = [ 'LICENSE', 'README.md', 'NEWS.md' ]
 
-  s.add_runtime_dependency('nanoc-core')
-  s.add_runtime_dependency('external')
+  s.add_runtime_dependency('nanoc', '>= 3.6.7', '< 4.0.0')
   s.add_development_dependency('bundler')
 end
