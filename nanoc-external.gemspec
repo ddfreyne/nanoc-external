@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.name        = 'nanoc-external'
   s.version     = Nanoc::External::VERSION
   s.homepage    = 'http://nanoc.ws/'
-  s.summary     = 'Exernal filter for nanoc'
-  s.description = 'Provides a :external filter for nanoc'
+  s.summary     = 'External filter for nanoc'
+  s.description = 'Provides an :external filter for nanoc'
 
   s.author  = 'Lifepillar'
   s.email   = 'github@lifepillar.org'
