@@ -37,14 +37,11 @@ module Nanoc::External
 
       cmd_with_opts = [ cmd ] + opts
       odebug(cmd_with_opts.join(' ')) if debug
-      out = ''
-      IO.popen(cmd_with_opts, mode='r+') do |io|
-        io.write content
-        io.close_write # let the process know you've given it all the data
-        out = io.read
-      end
-      odebug(out) if debug
-      out
+      out = StringIO.new
+      piper = Nanoc::Extra::Piper.new(:stdout => out, :stderr => $stderr)
+      piper.run(cmd_with_opts, content)
+      odebug(out.string) if debug
+      out.string
     end
 
   private
