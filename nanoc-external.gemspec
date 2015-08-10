@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email   = 'github@lifepillar.org'
   s.license = 'MIT'
 
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.2.0'
 
   s.files              = Dir['[A-Z]*'] +
                          Dir['{lib,test}/**/*'] +
@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.rdoc_options     = [ '--main', 'README.md' ]
   s.extra_rdoc_files = [ 'LICENSE', 'README.md', 'NEWS.md' ]
 
-  s.add_runtime_dependency('nanoc', '>= 3.6.7', '< 4.0.0')
-  s.add_development_dependency('bundler', '~> 1.5')
+  s.add_runtime_dependency('nanoc', '>= 4.0.0', '< 5.0.0')
+  s.add_development_dependency('bundler', '~> 1.10')
 end
