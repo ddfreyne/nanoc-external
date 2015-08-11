@@ -8,6 +8,10 @@ This provides a filter that allows [nanoc](http://nanoc.ws) to process content b
 
 Maintained by [lifepillar](https://github.com/lifepillar).
 
+## Compatibility
+
+Nanoc 4.0.0 or later.
+
 ## Installation
 
 `gem install nanoc-external`
